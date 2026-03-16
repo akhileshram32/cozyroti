@@ -1,341 +1,420 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cozy Roti — Mumbai Comfort Food Guide</title>
 
-<title>Cozy Roti — Mumbai Comfort Food Guide</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: #222;
+      background: #fff;
+      line-height: 1.6;
+    }
 
-<style>
+    .container {
+      max-width: 1120px;
+      margin: auto;
+      padding: 0 20px;
+    }
 
-body{
-margin:0;
-font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif;
-color:#222;
-background:#fff;
-line-height:1.6;
-}
+    nav {
+      border-bottom: 1px solid #eee;
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-.container{
-max-width:1100px;
-margin:auto;
-padding:0 20px;
-}
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
 
-nav{
-border-bottom:1px solid #eee;
-background:white;
-position:sticky;
-top:0;
-}
+    .logo {
+      font-size: 20px;
+      font-weight: 700;
+    }
 
-.nav-inner{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:18px 0;
-}
+    nav a {
+      margin-left: 20px;
+      color: #444;
+      text-decoration: none;
+      font-size: 14px;
+    }
 
-.logo{
-font-weight:700;
-font-size:20px;
-}
+    .hero {
+      padding: 90px 0 50px;
+      background: #fafafa;
+      text-align: center;
+    }
 
-nav a{
-margin-left:20px;
-color:#444;
-font-size:14px;
-text-decoration:none;
-}
+    .hero h1 {
+      font-size: 46px;
+      max-width: 760px;
+      margin: 0 auto;
+      line-height: 1.15;
+    }
 
-.hero{
-padding:90px 0 60px;
-text-align:center;
-background:#fafafa;
-}
+    .hero p {
+      margin: 18px auto 0;
+      max-width: 700px;
+      color: #666;
+      font-size: 18px;
+    }
 
-.hero h1{
-font-size:46px;
-max-width:700px;
-margin:auto;
-line-height:1.2;
-}
+    section {
+      padding: 70px 0;
+    }
 
-.hero p{
-margin-top:20px;
-color:#666;
-font-size:18px;
-}
+    h2 {
+      text-align: center;
+      font-size: 32px;
+      margin: 0 0 16px;
+    }
 
-section{
-padding:80px 0;
-}
+    .intro {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      color: #666;
+    }
 
-h2{
-font-size:32px;
-text-align:center;
-margin-bottom:20px;
-}
+    .controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin: 30px 0 10px;
+    }
 
-.intro{
-max-width:650px;
-margin:auto;
-text-align:center;
-color:#666;
-}
+    .search-box {
+      width: 100%;
+      max-width: 420px;
+      padding: 14px 16px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 15px;
+      outline: none;
+    }
 
-.grid{
-margin-top:40px;
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:28px;
-}
+    .filter-btn {
+      border: 1px solid #ddd;
+      background: white;
+      padding: 10px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 14px;
+    }
 
-.card{
-border:1px solid #eee;
-border-radius:12px;
-overflow:hidden;
-background:white;
-text-decoration:none;
-color:inherit;
-display:block;
-transition:all 0.25s ease;
-}
+    .filter-btn.active {
+      background: #222;
+      color: white;
+      border-color: #222;
+    }
 
-.card:hover{
-transform:translateY(-6px);
-box-shadow:0 10px 28px rgba(0,0,0,0.08);
-}
+    .grid {
+      margin-top: 35px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
 
-.card img{
-width:100%;
-height:200px;
-object-fit:cover;
-}
+    .card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      border: 1px solid #eee;
+      border-radius: 14px;
+      overflow: hidden;
+      background: white;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
 
-.card-content{
-padding:18px;
-}
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+    }
 
-.card h3{
-margin:0 0 10px;
-font-size:20px;
-}
+    .card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: block;
+    }
 
-.card p{
-margin:5px 0;
-font-size:14px;
-color:#555;
-}
+    .card-content {
+      padding: 18px;
+    }
 
-.map-link{
-margin-top:12px;
-font-size:14px;
-font-weight:600;
-text-decoration:underline;
-}
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      color: #555;
+      background: #f5f5f5;
+      border-radius: 999px;
+      padding: 5px 10px;
+      margin-bottom: 12px;
+    }
 
-.about{
-max-width:720px;
-margin:auto;
-text-align:center;
-color:#555;
-}
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 21px;
+    }
 
-.footer{
-border-top:1px solid #eee;
-padding:40px 0;
-text-align:center;
-color:#777;
-font-size:14px;
-}
+    .card p {
+      margin: 6px 0;
+      font-size: 14px;
+      color: #555;
+    }
 
-@media(max-width:900px){
+    .map-link {
+      margin-top: 14px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: underline;
+    }
 
-.grid{
-grid-template-columns:1fr;
-}
+    .about {
+      max-width: 760px;
+      margin: auto;
+      text-align: center;
+      color: #555;
+    }
 
-.hero h1{
-font-size:34px;
-}
+    .footer {
+      border-top: 1px solid #eee;
+      padding: 36px 0;
+      text-align: center;
+      color: #777;
+      font-size: 14px;
+    }
 
-}
+    .hidden {
+      display: none;
+    }
 
-</style>
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
 
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      .nav-inner {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      nav a {
+        margin: 0 10px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<nav>
-<div class="container nav-inner">
+  <nav>
+    <div class="container nav-inner">
+      <div class="logo">Cozy Roti</div>
+      <div>
+        <a href="#guide">Guide</a>
+        <a href="#about">About</a>
+        <a href="#contact">Submit</a>
+      </div>
+    </div>
+  </nav>
 
-<div class="logo">Cozy Roti</div>
+  <header class="hero">
+    <div class="container">
+      <h1>Mumbai's coziest comfort food — all in one place.</h1>
+      <p>
+        A curated guide to the spots that make Mumbai feel warm, delicious,
+        nostalgic and deeply comforting.
+      </p>
+    </div>
+  </header>
 
-<div>
-<a href="#guide">Guide</a>
-<a href="#about">About</a>
-<a href="#contact">Submit</a>
-</div>
+  <section id="guide">
+    <div class="container">
+      <h2>The Cozy Roti Guide</h2>
+      <p class="intro">
+        Search by name, dish or area. Or filter by the kind of comfort you’re craving.
+      </p>
 
-</div>
-</nav>
+      <div class="controls">
+        <input
+          type="text"
+          id="searchInput"
+          class="search-box"
+          placeholder="Search restaurants, dishes, or neighborhoods..."
+        />
+      </div>
 
+      <div class="controls">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="irani">Irani Cafes</button>
+        <button class="filter-btn" data-filter="street">Street Food</button>
+        <button class="filter-btn" data-filter="thali">Thali & Meals</button>
+        <button class="filter-btn" data-filter="late-night">Late Night</button>
+      </div>
 
-<header class="hero">
+      <div class="grid" id="restaurantGrid">
 
-<div class="container">
+        <a class="card" data-category="late-night street" data-search="bademiya seekh kebab roll colaba late night" href="https://maps.google.com/?q=Bademiya+Colaba+Mumbai" target="_blank">
+          <img src="https://images.unsplash.com/photo-1505253758473-96b7015fcd40?auto=format&fit=crop&w=1200&q=80" alt="Bademiya">
+          <div class="card-content">
+            <div class="tag">Late Night</div>
+            <h3>Bademiya</h3>
+            <p><strong>Best dish:</strong> Seekh Kebab Roll</p>
+            <p><strong>Average for 2:</strong> ₹600</p>
+            <p><strong>Rating:</strong> 4.3</p>
+            <p><strong>Location:</strong> Colaba</p>
+            <div class="map-link">Open in Google Maps →</div>
+          </div>
+        </a>
 
-<h1>Mumbai's coziest comfort food — all in one place.</h1>
+        <a class="card" data-category="irani" data-search="kyani and co bun maska irani chai marine lines irani cafe" href="https://maps.google.com/?q=Kyani+and+Co+Marine+Lines+Mumbai" target="_blank">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80" alt="Kyani and Co">
+          <div class="card-content">
+            <div class="tag">Irani Cafe</div>
+            <h3>Kyani & Co.</h3>
+            <p><strong>Best dish:</strong> Bun Maska & Irani Chai</p>
+            <p><strong>Average for 2:</strong> ₹400</p>
+            <p><strong>Rating:</strong> 4.4</p>
+            <p><strong>Location:</strong> Marine Lines</p>
+            <div class="map-link">Open in Google Maps →</div>
+          </div>
+        </a>
 
-<p>
-A curated guide to the spots that make Mumbai feel warm,
-delicious and deeply comforting.
-</p>
+        <a class="card" data-category="street thali" data-search="aaswad misal pav dadar maharashtrian comfort food" href="https://maps.google.com/?q=Aaswad+Dadar+Mumbai" target="_blank">
+          <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=1200&q=80" alt="Aaswad">
+          <div class="card-content">
+            <div class="tag">Street Food</div>
+            <h3>Aaswad</h3>
+            <p><strong>Best dish:</strong> Misal Pav</p>
+            <p><strong>Average for 2:</strong> ₹500</p>
+            <p><strong>Rating:</strong> 4.5</p>
+            <p><strong>Location:</strong> Dadar</p>
+            <div class="map-link">Open in Google Maps →</div>
+          </div>
+        </a>
 
-</div>
+        <a class="card" data-category="thali" data-search="britannia and co berry pulao ballard estate parsi meal" href="https://maps.google.com/?q=Britannia+and+Co+Ballard+Estate+Mumbai" target="_blank">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80" alt="Britannia and Co">
+          <div class="card-content">
+            <div class="tag">Thali & Meals</div>
+            <h3>Britannia & Co.</h3>
+            <p><strong>Best dish:</strong> Berry Pulao</p>
+            <p><strong>Average for 2:</strong> ₹1800</p>
+            <p><strong>Rating:</strong> 4.5</p>
+            <p><strong>Location:</strong> Ballard Estate</p>
+            <div class="map-link">Open in Google Maps →</div>
+          </div>
+        </a>
 
-</header>
+        <a class="card" data-category="thali street" data-search="prakash sabudana vada dadar vegetarian snack comfort food" href="https://maps.google.com/?q=Prakash+Shakahari+Dadar+Mumbai" target="_blank">
+          <img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=1200&q=80" alt="Prakash">
+          <div class="card-content">
+            <div class="tag">Thali & Meals</div>
+            <h3>Prakash</h3>
+            <p><strong>Best dish:</strong> Sabudana Vada</p>
+            <p><strong>Average for 2:</strong> ₹350</p>
+            <p><strong>Rating:</strong> 4.4</p>
+            <p><strong>Location:</strong> Dadar</p>
+            <div class="map-link">Open in Google Maps →</div>
+          </div>
+        </a>
 
+        <a class="card" data-category="street" data-search="ashok vada pav dadar vada pav street food mumbai" href="https://maps.google.com/?q=Ashok+Vada+Pav+Dadar+Mumbai" target="_blank">
+          <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=1200&q=80" alt="Ashok Vada Pav">
+          <div class="card-content">
+            <div class="tag">Street Food</div>
+            <h3>Ashok Vada Pav</h3>
+            <p><strong>Best dish:</strong> Vada Pav</p>
+            <p><strong>Average for 2:</strong> ₹150</p>
+            <p><strong>Rating:</strong> 4.6</p>
+            <p><strong>Location:</strong> Dadar</p>
+            <div class="map-link">Open in Google Maps →</div>
+          </div>
+        </a>
 
-<section id="guide">
+      </div>
+    </div>
+  </section>
 
-<div class="container">
+  <section id="about">
+    <div class="container">
+      <h2>About Cozy Roti</h2>
+      <p class="about">
+        Mumbai has thousands of incredible food spots — but the ones that stay with us
+        are the cozy ones. The places where food feels comforting, nostalgic and deeply local.
+        Cozy Roti is a growing guide to those places.
+      </p>
+    </div>
+  </section>
 
-<h2>The Cozy Roti Guide</h2>
+  <section id="contact">
+    <div class="container">
+      <h2>Submit a Spot</h2>
+      <p class="intro">
+        Know a place that deserves to be on the Cozy Roti list? Send us your recommendation.
+      </p>
+      <p style="text-align:center; margin-top:20px;">hello@cozyroti.in</p>
+    </div>
+  </section>
 
-<p class="intro">
-Click any restaurant to open its location in Google Maps.
-</p>
+  <div class="footer">
+    <div class="container">
+      © 2026 Cozy Roti — Mumbai Comfort Food Guide
+    </div>
+  </div>
 
-<div class="grid">
+  <script>
+    const searchInput = document.getElementById("searchInput");
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const cards = document.querySelectorAll(".card");
 
-<a class="card" href="https://maps.google.com/?q=Bademiya+Colaba+Mumbai" target="_blank">
-<img src="https://images.unsplash.com/photo-1505253758473-96b7015fcd40?auto=format&fit=crop&w=1200&q=80">
-<div class="card-content">
-<h3>Bademiya</h3>
-<p><strong>Best dish:</strong> Seekh Kebab Roll</p>
-<p><strong>Average for 2:</strong> ₹600</p>
-<p><strong>Rating:</strong> 4.3</p>
-<p><strong>Location:</strong> Colaba</p>
-<div class="map-link">Open in Google Maps →</div>
-</div>
-</a>
+    let activeFilter = "all";
 
-<a class="card" href="https://maps.google.com/?q=Kyani+and+Co+Marine+Lines+Mumbai" target="_blank">
-<img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80">
-<div class="card-content">
-<h3>Kyani & Co.</h3>
-<p><strong>Best dish:</strong> Bun Maska & Irani Chai</p>
-<p><strong>Average for 2:</strong> ₹400</p>
-<p><strong>Rating:</strong> 4.4</p>
-<p><strong>Location:</strong> Marine Lines</p>
-<div class="map-link">Open in Google Maps →</div>
-</div>
-</a>
+    function filterCards() {
+      const searchTerm = searchInput.value.toLowerCase().trim();
 
-<a class="card" href="https://maps.google.com/?q=Aaswad+Dadar+Mumbai" target="_blank">
-<img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=1200&q=80">
-<div class="card-content">
-<h3>Aaswad</h3>
-<p><strong>Best dish:</strong> Misal Pav</p>
-<p><strong>Average for 2:</strong> ₹500</p>
-<p><strong>Rating:</strong> 4.5</p>
-<p><strong>Location:</strong> Dadar</p>
-<div class="map-link">Open in Google Maps →</div>
-</div>
-</a>
+      cards.forEach(card => {
+        const categories = card.dataset.category.toLowerCase();
+        const searchableText = card.dataset.search.toLowerCase();
 
-<a class="card" href="https://maps.google.com/?q=Britannia+and+Co+Ballard+Estate+Mumbai" target="_blank">
-<img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80">
-<div class="card-content">
-<h3>Britannia & Co.</h3>
-<p><strong>Best dish:</strong> Berry Pulao</p>
-<p><strong>Average for 2:</strong> ₹1800</p>
-<p><strong>Rating:</strong> 4.5</p>
-<p><strong>Location:</strong> Ballard Estate</p>
-<div class="map-link">Open in Google Maps →</div>
-</div>
-</a>
+        const matchesFilter =
+          activeFilter === "all" || categories.includes(activeFilter);
 
-<a class="card" href="https://maps.google.com/?q=Prakash+Shakahari+Dadar+Mumbai" target="_blank">
-<img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=1200&q=80">
-<div class="card-content">
-<h3>Prakash</h3>
-<p><strong>Best dish:</strong> Sabudana Vada</p>
-<p><strong>Average for 2:</strong> ₹350</p>
-<p><strong>Rating:</strong> 4.4</p>
-<p><strong>Location:</strong> Dadar</p>
-<div class="map-link">Open in Google Maps →</div>
-</div>
-</a>
+        const matchesSearch =
+          searchableText.includes(searchTerm);
 
-<a class="card" href="https://maps.google.com/?q=Ashok+Vada+Pav+Dadar+Mumbai" target="_blank">
-<img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=1200&q=80">
-<div class="card-content">
-<h3>Ashok Vada Pav</h3>
-<p><strong>Best dish:</strong> Vada Pav</p>
-<p><strong>Average for 2:</strong> ₹150</p>
-<p><strong>Rating:</strong> 4.6</p>
-<p><strong>Location:</strong> Dadar</p>
-<div class="map-link">Open in Google Maps →</div>
-</div>
-</a>
+        if (matchesFilter && matchesSearch) {
+          card.classList.remove("hidden");
+        } else {
+          card.classList.add("hidden");
+        }
+      });
+    }
 
-</div>
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+        activeFilter = button.dataset.filter;
+        filterCards();
+      });
+    });
 
-</div>
-
-</section>
-
-
-<section id="about">
-
-<div class="container">
-
-<h2>About Cozy Roti</h2>
-
-<p class="about">
-Mumbai has thousands of incredible food spots — but the ones that stay with us
-are the cozy ones. The places where food feels comforting, nostalgic and deeply local.
-
-Cozy Roti is a growing guide to those places.
-</p>
-
-</div>
-
-</section>
-
-
-<section id="contact">
-
-<div class="container">
-
-<h2>Submit a Spot</h2>
-
-<p class="intro">
-Know a place that deserves to be on the Cozy Roti list?
-Email us your recommendation.
-</p>
-
-<p style="text-align:center;margin-top:20px;">
-hello@cozyroti.in
-</p>
-
-</div>
-
-</section>
-
-
-<div class="footer">
-
-<div class="container">
-© 2026 Cozy Roti — Mumbai Comfort Food Guide
-</div>
-
-</div>
+    searchInput.addEventListener("input", filterCards);
+  </script>
 
 </body>
 </html>
