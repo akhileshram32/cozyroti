@@ -18,7 +18,7 @@ line-height:1.6;
 }
 
 .container{
-max-width:1000px;
+max-width:1100px;
 margin:auto;
 padding:0 20px;
 }
@@ -50,13 +50,13 @@ text-decoration:none;
 }
 
 .hero{
-padding:100px 0 70px;
+padding:90px 0 60px;
 text-align:center;
 background:#fafafa;
 }
 
 .hero h1{
-font-size:48px;
+font-size:46px;
 max-width:700px;
 margin:auto;
 line-height:1.2;
@@ -74,8 +74,8 @@ padding:80px 0;
 
 h2{
 font-size:32px;
-margin-bottom:20px;
 text-align:center;
+margin-bottom:20px;
 }
 
 .intro{
@@ -89,7 +89,7 @@ color:#666;
 margin-top:40px;
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:25px;
+gap:28px;
 }
 
 .card{
@@ -97,6 +97,15 @@ border:1px solid #eee;
 border-radius:12px;
 overflow:hidden;
 background:white;
+text-decoration:none;
+color:inherit;
+display:block;
+transition:all 0.25s ease;
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 10px 28px rgba(0,0,0,0.08);
 }
 
 .card img{
@@ -110,17 +119,25 @@ padding:18px;
 }
 
 .card h3{
-margin-top:0;
-font-size:18px;
+margin:0 0 10px;
+font-size:20px;
 }
 
 .card p{
-color:#666;
+margin:5px 0;
 font-size:14px;
+color:#555;
+}
+
+.map-link{
+margin-top:12px;
+font-size:14px;
+font-weight:600;
+text-decoration:underline;
 }
 
 .about{
-max-width:700px;
+max-width:720px;
 margin:auto;
 text-align:center;
 color:#555;
@@ -134,14 +151,14 @@ color:#777;
 font-size:14px;
 }
 
-@media(max-width:800px){
-
-.hero h1{
-font-size:34px;
-}
+@media(max-width:900px){
 
 .grid{
 grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:34px;
 }
 
 }
@@ -160,7 +177,7 @@ grid-template-columns:1fr;
 <div>
 <a href="#guide">Guide</a>
 <a href="#about">About</a>
-<a href="#contact">Contact</a>
+<a href="#contact">Submit</a>
 </div>
 
 </div>
@@ -174,8 +191,8 @@ grid-template-columns:1fr;
 <h1>Mumbai's coziest comfort food — all in one place.</h1>
 
 <p>
-Cozy Roti is a curated collection of the best comfort food spots across Mumbai —
-from late-night shawarma joints to neighborhood thali houses and hidden gems.
+A curated guide to the spots that make Mumbai feel warm,
+delicious and deeply comforting.
 </p>
 
 </div>
@@ -190,59 +207,82 @@ from late-night shawarma joints to neighborhood thali houses and hidden gems.
 <h2>The Cozy Roti Guide</h2>
 
 <p class="intro">
-A growing collection of places that make Mumbai feel warm, delicious and comforting.
+Click any restaurant to open its location in Google Maps.
 </p>
-
 
 <div class="grid">
 
-<div class="card">
+<a class="card" href="https://maps.google.com/?q=Bademiya+Colaba+Mumbai" target="_blank">
 <img src="https://images.unsplash.com/photo-1505253758473-96b7015fcd40?auto=format&fit=crop&w=1200&q=80">
 <div class="card-content">
-<h3>Late Night Rolls</h3>
-<p>The best kathi rolls and shawarmas to end the night right.</p>
+<h3>Bademiya</h3>
+<p><strong>Best dish:</strong> Seekh Kebab Roll</p>
+<p><strong>Average for 2:</strong> ₹600</p>
+<p><strong>Rating:</strong> 4.3</p>
+<p><strong>Location:</strong> Colaba</p>
+<div class="map-link">Open in Google Maps →</div>
 </div>
-</div>
+</a>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=1200&q=80">
-<div class="card-content">
-<h3>Classic Thali Spots</h3>
-<p>Simple, filling meals that taste like home.</p>
-</div>
-</div>
-
-<div class="card">
+<a class="card" href="https://maps.google.com/?q=Kyani+and+Co+Marine+Lines+Mumbai" target="_blank">
 <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80">
 <div class="card-content">
-<h3>Irani Cafes</h3>
-<p>Bun maska, chai and the comfort of old Mumbai.</p>
+<h3>Kyani & Co.</h3>
+<p><strong>Best dish:</strong> Bun Maska & Irani Chai</p>
+<p><strong>Average for 2:</strong> ₹400</p>
+<p><strong>Rating:</strong> 4.4</p>
+<p><strong>Location:</strong> Marine Lines</p>
+<div class="map-link">Open in Google Maps →</div>
 </div>
-</div>
+</a>
 
-<div class="card">
+<a class="card" href="https://maps.google.com/?q=Aaswad+Dadar+Mumbai" target="_blank">
 <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=1200&q=80">
 <div class="card-content">
-<h3>Street Food Legends</h3>
-<p>Vada pav, pav bhaji and Mumbai classics.</p>
+<h3>Aaswad</h3>
+<p><strong>Best dish:</strong> Misal Pav</p>
+<p><strong>Average for 2:</strong> ₹500</p>
+<p><strong>Rating:</strong> 4.5</p>
+<p><strong>Location:</strong> Dadar</p>
+<div class="map-link">Open in Google Maps →</div>
 </div>
-</div>
+</a>
 
-<div class="card">
+<a class="card" href="https://maps.google.com/?q=Britannia+and+Co+Ballard+Estate+Mumbai" target="_blank">
 <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80">
 <div class="card-content">
-<h3>Hidden Neighborhood Gems</h3>
-<p>The places locals swear by.</p>
+<h3>Britannia & Co.</h3>
+<p><strong>Best dish:</strong> Berry Pulao</p>
+<p><strong>Average for 2:</strong> ₹1800</p>
+<p><strong>Rating:</strong> 4.5</p>
+<p><strong>Location:</strong> Ballard Estate</p>
+<div class="map-link">Open in Google Maps →</div>
 </div>
-</div>
+</a>
 
-<div class="card">
+<a class="card" href="https://maps.google.com/?q=Prakash+Shakahari+Dadar+Mumbai" target="_blank">
+<img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=1200&q=80">
+<div class="card-content">
+<h3>Prakash</h3>
+<p><strong>Best dish:</strong> Sabudana Vada</p>
+<p><strong>Average for 2:</strong> ₹350</p>
+<p><strong>Rating:</strong> 4.4</p>
+<p><strong>Location:</strong> Dadar</p>
+<div class="map-link">Open in Google Maps →</div>
+</div>
+</a>
+
+<a class="card" href="https://maps.google.com/?q=Ashok+Vada+Pav+Dadar+Mumbai" target="_blank">
 <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=1200&q=80">
 <div class="card-content">
-<h3>Comfort Desserts</h3>
-<p>Sweet endings from across the city.</p>
+<h3>Ashok Vada Pav</h3>
+<p><strong>Best dish:</strong> Vada Pav</p>
+<p><strong>Average for 2:</strong> ₹150</p>
+<p><strong>Rating:</strong> 4.6</p>
+<p><strong>Location:</strong> Dadar</p>
+<div class="map-link">Open in Google Maps →</div>
 </div>
-</div>
+</a>
 
 </div>
 
@@ -259,8 +299,7 @@ A growing collection of places that make Mumbai feel warm, delicious and comfort
 
 <p class="about">
 Mumbai has thousands of incredible food spots — but the ones that stay with us
-are the cozy ones. The places where food feels comforting, nostalgic and deeply
-local.
+are the cozy ones. The places where food feels comforting, nostalgic and deeply local.
 
 Cozy Roti is a growing guide to those places.
 </p>
@@ -278,7 +317,7 @@ Cozy Roti is a growing guide to those places.
 
 <p class="intro">
 Know a place that deserves to be on the Cozy Roti list?
-Send it our way.
+Email us your recommendation.
 </p>
 
 <p style="text-align:center;margin-top:20px;">
@@ -297,7 +336,6 @@ hello@cozyroti.in
 </div>
 
 </div>
-
 
 </body>
 </html>
