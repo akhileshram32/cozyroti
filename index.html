@@ -1,330 +1,302 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cozy Roti</title>
-  <meta name="description" content="Fresh, soft, homemade rotis delivered with warmth and care." />
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    html {
-      scroll-behavior: smooth;
-    }
+<title>Cozy Roti — Mumbai Comfort Food Guide</title>
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-      color: #2b2b2b;
-      background: #fffaf5;
-    }
+<style>
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+body{
+margin:0;
+font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif;
+color:#222;
+background:#fff;
+line-height:1.6;
+}
 
-    .container {
-      width: min(1100px, 92%);
-      margin: 0 auto;
-    }
+.container{
+max-width:1000px;
+margin:auto;
+padding:0 20px;
+}
 
-    .navbar {
-      position: sticky;
-      top: 0;
-      background: rgba(255, 250, 245, 0.96);
-      border-bottom: 1px solid #eee2d6;
-      z-index: 1000;
-    }
+nav{
+border-bottom:1px solid #eee;
+background:white;
+position:sticky;
+top:0;
+}
 
-    .nav-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 16px 0;
-    }
+.nav-inner{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 0;
+}
 
-    .brand {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #9a3412;
-    }
+.logo{
+font-weight:700;
+font-size:20px;
+}
 
-    .nav-links {
-      display: flex;
-      gap: 18px;
-      font-size: 0.95rem;
-    }
+nav a{
+margin-left:20px;
+color:#444;
+font-size:14px;
+}
 
-    .hero {
-      padding: 80px 0 60px;
-      background: linear-gradient(to bottom, #fff4e8, #fffaf5);
-    }
+.hero{
+padding:100px 0 70px;
+text-align:center;
+background:#fafafa;
+}
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 32px;
-      align-items: center;
-    }
+.hero h1{
+font-size:48px;
+max-width:700px;
+margin:auto;
+line-height:1.2;
+}
 
-    .hero h1 {
-      font-size: 3rem;
-      line-height: 1.1;
-      margin: 0 0 16px;
-      color: #7c2d12;
-    }
+.hero p{
+margin-top:20px;
+color:#666;
+font-size:18px;
+}
 
-    .hero p {
-      font-size: 1.1rem;
-      margin: 0 0 24px;
-      color: #5b4636;
-      max-width: 600px;
-    }
+section{
+padding:80px 0;
+}
 
-    .button-row {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
+h2{
+font-size:32px;
+margin-bottom:20px;
+text-align:center;
+}
 
-    .btn {
-      display: inline-block;
-      padding: 12px 22px;
-      border-radius: 10px;
-      font-weight: 700;
-    }
+.intro{
+max-width:650px;
+margin:auto;
+text-align:center;
+color:#666;
+}
 
-    .btn-primary {
-      background: #c2410c;
-      color: white;
-    }
+.grid{
+margin-top:40px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
 
-    .btn-secondary {
-      border: 1px solid #c2410c;
-      color: #c2410c;
-      background: transparent;
-    }
+.card{
+border:1px solid #eee;
+border-radius:12px;
+overflow:hidden;
+background:white;
+}
 
-    .hero-card {
-      background: white;
-      padding: 28px;
-      border-radius: 18px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    }
+.card img{
+width:100%;
+height:200px;
+object-fit:cover;
+}
 
-    .hero-card img {
-      width: 100%;
-      border-radius: 14px;
-      display: block;
-    }
+.card-content{
+padding:18px;
+}
 
-    section {
-      padding: 70px 0;
-    }
+.card h3{
+margin-top:0;
+font-size:18px;
+}
 
-    h2 {
-      font-size: 2rem;
-      margin: 0 0 12px;
-      color: #7c2d12;
-      text-align: center;
-    }
+.card p{
+color:#666;
+font-size:14px;
+}
 
-    .section-intro {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 36px;
-      color: #6a5748;
-    }
+.about{
+max-width:700px;
+margin:auto;
+text-align:center;
+color:#555;
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
+.footer{
+border-top:1px solid #eee;
+padding:40px 0;
+text-align:center;
+color:#777;
+font-size:14px;
+}
 
-    .card {
-      background: white;
-      padding: 24px;
-      border-radius: 16px;
-      border: 1px solid #f1dfd0;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
-    }
+@media(max-width:800px){
 
-    .card h3 {
-      margin-top: 0;
-      color: #9a3412;
-    }
+.hero h1{
+font-size:34px;
+}
 
-    .about-box {
-      background: white;
-      border: 1px solid #f1dfd0;
-      border-radius: 18px;
-      padding: 28px;
-      max-width: 850px;
-      margin: 0 auto;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
-    }
+.grid{
+grid-template-columns:1fr;
+}
 
-    .contact-box {
-      background: #7c2d12;
-      color: white;
-      border-radius: 20px;
-      padding: 36px;
-      text-align: center;
-    }
+}
 
-    .contact-box h2 {
-      color: white;
-    }
+</style>
 
-    .contact-box p {
-      max-width: 700px;
-      margin: 0 auto 20px;
-    }
-
-    .footer {
-      border-top: 1px solid #eee2d6;
-      padding: 24px 0;
-      text-align: center;
-      color: #7a6a5d;
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 800px) {
-      .hero-grid,
-      .cards {
-        grid-template-columns: 1fr;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .hero h1 {
-        font-size: 2.2rem;
-      }
-    }
-  </style>
 </head>
+
 <body>
 
-  <nav class="navbar">
-    <div class="container nav-inner">
-      <div class="brand">Cozy Roti</div>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#menu">Menu</a>
-        <a href="#why-us">Why Us</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </nav>
+<nav>
+<div class="container nav-inner">
 
-  <header class="hero">
-    <div class="container hero-grid">
-      <div>
-        <h1>Fresh, soft, homemade rotis — made with warmth.</h1>
-        <p>
-          Cozy Roti brings comfort to your table with rotis that feel fresh,
-          wholesome, and lovingly made. Simple food. Honest ingredients. Everyday goodness.
-        </p>
-        <div class="button-row">
-          <a class="btn btn-primary" href="#contact">Order Now</a>
-          <a class="btn btn-secondary" href="#menu">View Menu</a>
-        </div>
-      </div>
+<div class="logo">Cozy Roti</div>
 
-      <div class="hero-card">
-        <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=900&q=80" alt="Fresh flatbread on a plate" />
-      </div>
-    </div>
-  </header>
+<div>
+<a href="#guide">Guide</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</div>
 
-  <section id="about">
-    <div class="container">
-      <h2>About Cozy Roti</h2>
-      <p class="section-intro">
-        We make everyday meals feel special with fresh rotis prepared for taste, comfort, and convenience.
-      </p>
-      <div class="about-box">
-        <p>
-          Cozy Roti is built around one simple idea: good food should feel warm, fresh, and dependable.
-          Whether it’s for busy families, working professionals, or small gatherings, we aim to serve rotis
-          that are soft, satisfying, and made with care.
-        </p>
-      </div>
-    </div>
-  </section>
+</div>
+</nav>
 
-  <section id="menu">
-    <div class="container">
-      <h2>Our Menu</h2>
-      <p class="section-intro">
-        Start simple. You can change these items later anytime.
-      </p>
-      <div class="cards">
-        <div class="card">
-          <h3>Classic Roti</h3>
-          <p>Soft whole wheat rotis for everyday meals.</p>
-        </div>
-        <div class="card">
-          <h3>Butter Roti</h3>
-          <p>Fresh rotis finished with a touch of butter.</p>
-        </div>
-        <div class="card">
-          <h3>Multigrain Roti</h3>
-          <p>A wholesome option with a hearty, healthy feel.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <section id="why-us">
-    <div class="container">
-      <h2>Why Choose Us</h2>
-      <p class="section-intro">
-        A few reasons your customers may want to order from you.
-      </p>
-      <div class="cards">
-        <div class="card">
-          <h3>Freshly Made</h3>
-          <p>Prepared to feel warm, soft, and comforting at every meal.</p>
-        </div>
-        <div class="card">
-          <h3>Simple Ingredients</h3>
-          <p>Good food starts with honest basics and careful preparation.</p>
-        </div>
-        <div class="card">
-          <h3>Made for Everyday Life</h3>
-          <p>Perfect for regular meals, busy routines, and family convenience.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<header class="hero">
 
-  <section id="contact">
-    <div class="container">
-      <div class="contact-box">
-        <h2>Get in Touch</h2>
-        <p>
-          Ready to order, collaborate, or learn more? Reach out and we’ll be happy to connect.
-        </p>
-        <p><strong>Email:</strong> hello@cozyroti.in</p>
-        <p><strong>Phone:</strong> +91 XXXXX XXXXX</p>
-        <p><strong>Instagram:</strong> @cozyroti</p>
-      </div>
-    </div>
-  </section>
+<div class="container">
 
-  <footer class="footer">
-    <div class="container">
-      © 2026 Cozy Roti. All rights reserved.
-    </div>
-  </footer>
+<h1>Mumbai's coziest comfort food — all in one place.</h1>
+
+<p>
+Cozy Roti is a curated collection of the best comfort food spots across Mumbai —
+from late-night shawarma joints to neighborhood thali houses and hidden gems.
+</p>
+
+</div>
+
+</header>
+
+
+<section id="guide">
+
+<div class="container">
+
+<h2>The Cozy Roti Guide</h2>
+
+<p class="intro">
+A growing collection of places that make Mumbai feel warm, delicious and comforting.
+</p>
+
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1505253758473-96b7015fcd40">
+<div class="card-content">
+<h3>Late Night Rolls</h3>
+<p>The best kathi rolls and shawarmas to end the night right.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1546833999-b9f581a1996d">
+<div class="card-content">
+<h3>Classic Thali Spots</h3>
+<p>Simple, filling meals that taste like home.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1604908176997-43196b1b8430">
+<div class="card-content">
+<h3>Irani Cafes</h3>
+<p>Bun maska, chai and the comfort of old Mumbai.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1601050690597-df0568f70950">
+<div class="card-content">
+<h3>Street Food Legends</h3>
+<p>Vada pav, pav bhaji and Mumbai classics.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1604908554007-06390d8a6d99">
+<div class="card-content">
+<h3>Hidden Neighborhood Gems</h3>
+<p>The places locals swear by.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1563379091339-03246963d96c">
+<div class="card-content">
+<h3>Comfort Desserts</h3>
+<p>Sweet endings from across the city.</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="about">
+
+<div class="container">
+
+<h2>About Cozy Roti</h2>
+
+<p class="about">
+Mumbai has thousands of incredible food spots — but the ones that stay with us
+are the cozy ones. The places where food feels comforting, nostalgic and deeply
+local.
+
+Cozy Roti is a growing guide to those places.
+</p>
+
+</div>
+
+</section>
+
+
+<section id="contact">
+
+<div class="container">
+
+<h2>Submit a Spot</h2>
+
+<p class="intro">
+Know a place that deserves to be on the Cozy Roti list?
+Send it our way.
+</p>
+
+<p style="text-align:center;margin-top:20px;">
+hello@cozyroti.in
+</p>
+
+</div>
+
+</section>
+
+
+<div class="footer">
+
+<div class="container">
+© 2026 Cozy Roti — Mumbai Comfort Food Guide
+</div>
+
+</div>
+
 
 </body>
 </html>
